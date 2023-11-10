@@ -1,1 +1,16 @@
-<p>operacion works!</p>
+<div>
+    <h2>Calculadora</h2>
+    <div id="operandos">
+        <h2 [class]="styleWarning">{{warning}}</h2>
+        <label for="num1">Número 1:</label><br>
+        <input type="number" name="num1" id="num1" [(ngModel)]="num1" (change)="comprobacionOperandos()" required /><br><br>
+        <label for="num2">Número 2:</label><br>
+        <input type="number" name="num2" id="num2" [(ngModel)]="num2" (change)="comprobacionOperandos()" required /><br><br>
+        <button (click)="sumar()">Sumar</button>
+        <button (click)="restar()">Restar</button>
+        <button (click)="multiplicar()">Multiplicar</button>
+        <button (click)="dividir()">Dividir</button><br><br>
+        <label for="resultado">Resultado de la operación:</label><br>
+        <input type="number" name="resultado" id="resultado" [(ngModel)]="resultado" />
+    </div>
+</div>
