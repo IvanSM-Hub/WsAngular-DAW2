@@ -1,0 +1,58 @@
+<h1>HEROES</h1>
+
+<!--Controladores CRUD-->
+<div>
+    <button (click)="insertar()"    [disabled]="insertarDeshabilitado">Insertar</button>
+    <button (click)="modificar()"   [disabled]="modificarBorrarDeshabilitado">Modificar</button>
+    <button (click)="borrar()"      [disabled]="modificarBorrarDeshabilitado">Borrar</button>
+    <button (click)="vaciar()">Vaciar</button>
+</div>
+
+<br>
+
+<!--Forms-->
+<div>
+    <label for="idHeroe">ID:</label>
+    <div>
+        <input id="idHeroe" disabled="disable" value="{{id == 0 ? '' : id}}"/>
+    </div>
+
+    <label for="nombre">Nombre:</label>
+    <div>
+        <input id="nombre" [(ngModel)]="nombre"/>
+        <span class="rojo" *ngIf="!nombreObligatorio">Este campo es obligatorio</span>
+    </div>
+
+    <label for="universo">Universo:</label>
+    <div>
+        <input id="universo" [(ngModel)]="universo"/>
+        <span class="rojo" [hidden]="universoObligatorio">Este campo es obligatorio</span>
+    </div>
+</div>
+
+<br>
+
+<!--listaHeroes[]-->
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Universo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let h of listaHeroes" (click)="seleccionar(h)">
+                <td>{{h.id}}</td>
+                <td>{{h.nombre}}</td>
+                <td>{{h.universo}}</td>
+            </tr>
+            <tr *ngIf="listaHeroes.length==0">
+                <td class="rojo" colspan="3">
+                    NO SE HAN ENCONTRADO HEROES
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
