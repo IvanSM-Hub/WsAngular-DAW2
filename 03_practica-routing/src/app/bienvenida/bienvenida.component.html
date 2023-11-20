@@ -1,0 +1,37 @@
+<h1>Bienvenidos al enrutamiento en Angular</h1>
+
+<div>
+    <span>Navegamdp desde la vista: </span>
+    <button routerLink="/componente1">Ir al componente1</button>
+</div>
+<hr/>
+<div>
+    <span>Navegando desde la vista mandando información: </span>
+    <button routerLink="/componente1/usuario1/direccion1">Ir al componente1</button>
+</div>
+<hr/>
+<div>
+    <span>Nombre:</span><br>
+    <input [(ngModel)]="nombre"><br><br>
+    <span>Dirección:</span><br>
+    <input [(ngModel)]="direccion">
+</div>
+<div>
+    <span>Pasando valores desde la vista [routerLink]: </span>
+    <button [routerLink]="['/componente1',nombre,direccion]">Componente1</button>
+</div>
+
+<div>
+    <span>Pasando valores desde la vista de manera pragramática: </span>
+    <button (click)="routingProgramatico()">Componente1 Programático</button>
+</div>
+
+<div>
+    <span>Pasando valores desde la vista mediante parametros de query: </span>
+    <button [routerLink]="['/componente1']" [queryParams]="{parametro1:nombre,parametro2:direccion}">Componente1 Query Param</button>
+</div>
+
+<div>
+    <span>Pasando valores desde la vista mediante parametros de query y programáticamente: </span>
+    <button (click)="routingProgramaticoQueryParam()">Componente 1 Query Param Programática</button>
+</div>
