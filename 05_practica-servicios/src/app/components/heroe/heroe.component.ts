@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Heroe } from 'src/app/entitys/heroe';
 
 @Component({
   selector: 'app-heroe',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./heroe.component.css']
 })
 export class HeroeComponent implements OnInit {
+
+  /*Para que un componente se pueda incializar nulo hay que añadir la cnfiguración "strictPropertyInitialization":false. Sino nos dará error al intentar incluir el objeto*/
+  @Input() heroe:Heroe;
 
   constructor() { }
 
